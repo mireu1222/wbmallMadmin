@@ -1,0 +1,44 @@
+<ul class="slt-list @@size">
+    @@if(context.checkbox){
+        @@for(var i = 0; i < list.length; i++){
+            <li>
+                <span class="chk-wrap">
+                    <input type="checkbox" id="@@checkbox`+[i]+`" name="@@checkbox">
+                    <label for="@@checkbox`+[i]+`">`+list[i]+`</label>
+                </span>
+            </li>
+        }
+        @@if(context.comb){
+            <li class="comb">
+                <div class="complex">
+                    <span class="chk-wrap">
+                        <input type="checkbox" id="@@comb.id" name="@@comb.name">
+                        <label for="@@comb.id">@@comb.label</label>
+                    </span>
+                    <input type="text" class="form-control">
+                </div>
+            </li>
+        }
+    }
+    @@if(context.radio){
+        @@for(var i = 0; i < list.length; i++){
+            <li>
+                <span class="rdo-wrap">
+                    <input type="radio" id="@@radio`+[i]+`" name="@@radio">
+                    <label for="@@radio`+[i]+`">`+list[i]+`</label>
+                </span>
+            </li>
+        }
+        @@if(context.comb){
+            <li class="comb">
+                <div class="complex">
+                    <span class="rdo-wrap">
+                        <input type="radio" id="@@comb.id" name="@@comb.name">
+                        <label for="@@comb.id">@@comb.label</label>
+                    </span>
+                    <input type="text" class="form-control">
+                </div>
+            </li>
+        }
+    }
+</ul>

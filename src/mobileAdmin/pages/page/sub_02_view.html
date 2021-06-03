@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./layout/head.html')
+</head>
+<body>
+    <div class="skip-navigation">
+        <a href="#container">메뉴 건너뛰기</a>
+    </div>
+    <div id="wrap">
+        <!-- header -->
+        @@include('./layout/header.html')
+        <!-- // header -->
+        <!-- content -->
+        <div id="container" class="container">
+            <!-- page tab -->
+            @@include('./layout/depth1-tab.html', {
+                sub02 : true,
+            })
+            <!-- // page tab -->
+
+            <!-- 고객정보 -->
+            @@include('./modules/customer-list.html', {
+                detail : {
+                    from : '무료상담신청',
+                    time : '최근 상담등록',
+                    attention : true
+                }
+            })
+            <!-- // 고객정보 -->
+
+            <!-- 상담 진행 내역 -->
+            @@include('./modules/consulting-input.html', {
+                chance : true
+            })
+            <!-- // 상담 진행 내역 -->
+        </div>
+        <!-- // content -->
+    </div>
+</body>
+</html>

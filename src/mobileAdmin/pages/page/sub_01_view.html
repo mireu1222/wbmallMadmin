@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./layout/head.html')
+</head>
+<body>
+    <div class="skip-navigation">
+        <a href="#container">메뉴 건너뛰기</a>
+    </div>
+    <div id="wrap">
+        <!-- header -->
+        @@include('./layout/header.html')
+        <!-- // header -->
+        <!-- content -->
+        <div id="container" class="container">
+            <!-- page tab -->
+            @@include('./layout/depth1-tab.html', {
+                sub01 : true,
+            })
+            <!-- // page tab -->
+
+            <!-- 고객정보 ::: 무료상담신청 case -->
+            @@include('./modules/customer-list.html', {
+                detail : {
+                    from : '무료상담신청',
+                    time : '신청일',
+                    cont : true
+                }
+            })
+            <!-- // 고객정보 ::: 무료상담신청 case -->
+            <!-- 고객정보 ::: 실시간보험료계산 case -->
+            @@include('./modules/customer-list.html', {
+                detail : {
+                    from : '실시간보험료계산',
+                    time : '인증시간',
+                    search : 'MG손해보험 : (무)건강명의4대질병진단보험(20.04)(암중점형)'
+                }
+            })
+            <!-- // 고객정보 ::: 실시간보험료계산 case -->
+            <!-- 고객정보 ::: 통합보험료계산 case -->
+            @@include('./modules/customer-list.html', {
+                detail : {
+                    from : '통합보험료계산',
+                    time : '인증시간',
+                    search : '암보험 &gt; 갱신형'
+                }
+            })
+            <!-- // 고객정보 ::: 통합보험료계산 case -->
+            <!-- 고객정보 ::: 보험비교 case -->
+            @@include('./modules/customer-list.html', {
+                detail : {
+                    from : '보험비교',
+                    time : '인증시간',
+                    search : 'MG손해보험 : (무)건강명의4대질병진단보험(20.04)(암중점형)'
+                }
+            })
+            <!-- // 고객정보 ::: 보험비교 case -->
+            <!-- 고객정보 ::: 온라인상담신청 case -->
+            @@include('./modules/customer-list.html', {
+                detail : {
+                    from : '온라인상담신청',
+                    time : '신청일',
+                    consulting : true,
+                }
+            })
+            <!-- // 고객정보 ::: 온라인상담신청 case -->
+            <!-- 고객정보 ::: 온라인가입신청 case -->
+            @@include('./modules/customer-list.html', {
+                detail : {
+                    from : '온라인가입신청',
+                    time : '신청일',
+                    join : true,
+                }
+            })
+            <!-- // 고객정보 ::: 온라인가입신청 case -->
+
+            <!-- 상담 진행 내역 ::: 전 case 동일 -->
+            @@include('./modules/consulting-input.html')
+            <!-- // 상담 진행 내역 ::: 전 case 동일 -->
+        </div>
+        <!-- // content -->
+    </div>
+</body>
+</html>

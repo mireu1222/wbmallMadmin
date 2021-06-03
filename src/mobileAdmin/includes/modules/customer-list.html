@@ -1,0 +1,209 @@
+@@if(context.detail){
+<div class="customer-list-wrap">
+    <h2>고객정보</h2>
+    <div class="inner">
+        <span class="flag flag-basic">@@detail.from</span>
+        <p class="name">홍길동(남)</p>
+        <div class="info">
+            @@if(context.detail.by){
+            <dl>
+                <dt>상담경로</dt>
+                <dd><em class="state">무료상담신청</em></dd>
+            </dl>
+            }
+            <dl>
+                <dt>생년월일</dt>
+                <dd>1982.07.17(보험나이 : <em class="age">34</em>세)</dd>
+            </dl>
+            <dl>
+                <dt>휴대폰</dt>
+                <dd>010.3111.2111</dd>
+            </dl>
+            @@if(context.detail.time){
+            <dl>
+                <dt>@@detail.time</dt>
+                <dd>2021.01.01 00:00</dd>
+            </dl>
+            }
+            @@if(context.detail.search){
+            <dl class="row">
+                <dt>검색보험</dt>
+                <dd>@@detail.search</dd>
+            </dl>
+            }
+            @@if(context.detail.attention){
+            <dl class="row">
+                <dt>관심보험</dt>
+                <dd>MG손해보험 : (무)건강명의4대질병진단보험(20.04)(암중점형)</dd>
+            </dl>
+            }
+            @@if(context.detail.cont){
+            <dl class="row">
+                <dt>상담내용</dt>
+                <dd>암보험에 대한 문의가 있습니다.</dd>
+            </dl>    
+            }
+            @@if(context.detail.consulting){
+            <dl class="row">
+                <dt>문의보험상품</dt>
+                <dd>
+                    @@include('./modules/slt-list.html', {
+                        size : 'half',
+                        checkbox : 'product',
+                        list : [
+                            '무해지환급형보험', '의료실비보험',
+                            '암보험', '치아보험', '건강보험', '어린이/태아보험', '운전자보험',
+                            '상해/골프보험', '종신/정기보험', '저축/연금보험', '치매간병/실버보험'
+                        ]
+                    })
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt>예상보험료</dt>
+                <dd>
+                    @@include('./modules/slt-list.html', {
+                        size : 'full',
+                        radio : 'price',
+                        list : [
+                            '최소보장(20,000~30,000원대)',
+                            '기본보장(30,000~40,000원대)',
+                            '많은보장(50,000원대 이상)',
+                        ]
+                    })
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt>보험선택기준</dt>
+                <dd>
+                    @@include('./modules/slt-list.html', {
+                        size : 'full',
+                        radio : 'criteria',
+                        list : [
+                            '동일보장에 저렴한 보험',
+                            '보장이 잘되는 보험',
+                            '알려진 브랜드 보험'
+                        ]
+                    })
+                </dd>
+            </dl>
+            }
+            @@if(context.detail.join){
+            <dl class="row">
+                <dt>문의보험상품</dt>
+                <dd>
+                    @@include('./modules/slt-list.html', {
+                        size : 'half',
+                        checkbox : 'product',
+                        list : [
+                            '무해지환급형보험', '의료실비보험',
+                            '암보험', '치아보험', '건강보험', '어린이/태아보험', '운전자보험',
+                            '상해/골프보험', '종신/정기보험', '저축/연금보험', '치매간병/실버보험'
+                        ]
+                    })
+                </dd>
+            </dl> 
+            <dl class="row">
+                <dt>직업</dt>
+                <dd>
+                    @@include('./modules/slt-list.html', {
+                        size : 'auto',
+                        radio : 'job',
+                        list : [
+                            '사무직', '주부', '학생'
+                        ],
+                        comb : {
+                            id : 'job-input',
+                            name : 'job-input',
+                            label : '기타'
+                        }
+                    })
+                </dd>
+            </dl> 
+            <dl class="row">
+                <dt>건강상태</dt>
+                <dd>
+                    <p class="qst">최근 5년 이내에 병을 앓은 적이 있습니까?</p>
+                    @@include('./modules/slt-list.html', {
+                        size : 'auto',
+                        radio : 'health01-',
+                        list : [
+                            '예', '아니오'
+                        ]
+                    })
+                    <p class="qst">신체장애, 신체적인 결손이나 기능의 이상이 있습니까?</p>
+                    @@include('./modules/slt-list.html', {
+                        size : 'auto',
+                        radio : 'health02-',
+                        list : [
+                            '예', '아니오'
+                        ]
+                    })
+                </dd>
+            </dl> 
+            <dl class="row">
+                <dt>문의사항</dt>
+                <dd>
+                    @@include('./modules/slt-list.html', {
+                        size : 'full',
+                        checkbox : 'qst',
+                        list : [
+                            '상품에 대한 자세한 문의', '보험비교 문의',
+                            '보험견적문의', '가입자격문의', '상품 보장내용 문의',
+                            '보험 리모델링 요청'
+                        ],
+                        comb : {
+                            id : 'qst-input',
+                            name : 'qst-input',
+                            label : '기타'
+                        }
+                    })
+                </dd>
+            </dl> 
+            }
+        </div>
+    </div>
+</div>
+}
+@@if(!context.detail){
+<div class="customer-list-wrap">
+    <h2>고객정보</h2>
+    <ul class="lists">
+        @@for(var i=0; i < list.length; i++) {
+        <li>
+            <div class="inner">
+                <span class="flag flag-basic">`+[99-i]+`. `+list[i].device+`</span>
+                <p class="name">홍길동(남)</p>
+                <div class="info">
+                    <dl>
+                        <dt>생년월일</dt>
+                        <dd>1982.07.17(보험나이 : <em class="age">34</em>세)</dd>
+                    </dl>
+                    <dl>
+                        <dt>휴대폰</dt>
+                        <dd>010.3111.2111</dd>
+                    </dl>
+                    <dl>
+                        <dt>신청일</dt>
+                        <dd>2021.01.01 00:00</dd>
+                    </dl>
+                    <dl>
+                        <dt>상태</dt>
+                        <dd><em class="state">`+list[i].state+`</em>(2021.05.01 00:00)</dd>
+                    </dl>
+                </div>
+                <div class="btn-group">
+                    <a href="@@page" class="btn btn-border-point"><span>관리</span></a>
+                </div>
+            </div>
+        </li>
+        }
+    </ul>
+</div>
+}
+@@if(context.more){
+<!-- 더보기 불러올 list 없을 경우 .block-btn-wrap DOM 전체 hide -->
+<div class="block-btn-wrap">
+    <button type="button" class="btn btn-border-border block"><span>더보기</span></button>
+</div>
+<!-- // 더보기 불러올 list 없을 경우 .block-btn-wrap DOM 전체 hide -->
+}

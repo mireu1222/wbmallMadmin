@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+/* button */
+.btn {
+    display:inline-block;
+    vertical-align:top;
+    min-width:82px;
+    height:40px;
+    border:1px solid transparent;
+    border-radius:4px;
+    padding:0 20px;
+    background-color:transparent;
+    cursor:pointer;
+    text-align:center;
+    font-size:13px;
+    line-height:38px;
+    font-weight:500;
+    &.no-radius {
+        border-radius:0;
+    }
+    // color
+    @each $color, $value, $option in $colors {
+        &.btn-#{$color} {
+            background-color:$value;
+            border-color:$value;
+            @if $option == 'dark' {
+                color:#fff;
+            } @else if $option == 'bright' {
+                color:$basic;
+            }
+        }
+        &.btn-border-#{$color} {
+            border-color:$value;
+            @if $color == 'border' {
+                background-color:$border2;
+            }
+            @if $option == 'dark' {
+                color:$value;
+            } @else if $option == 'bright' {
+                color:$cont;
+            }
+        }
+    }
+    // size
+    @each $size, $h, $lineH, $font, $fontW in $btns {
+        &.btn-#{$size} {
+            height:$h;
+            line-height:$lineH;
+            font-size:$font;
+            font-weight:$fontW;
+        }
+    }
+    &.block {
+        display:block;
+        width:100%;
+    }
+}
+.block-btn-wrap {
+    padding:20px 15px;
+}
+.btn-group {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:20px;
+    .btn {
+        margin-left:10px;
+        &:first-child {
+            margin-left:0;
+        }
+        &.mr-auto {
+            margin-right:auto;
+        }
+    }
+}

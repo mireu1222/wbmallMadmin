@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+/* flag */
+.flag {
+    display:inline-block;
+    vertical-align:top;
+    min-width:50px;
+    height:23px;
+    border:1px solid transparent;
+    border-radius:4px;
+    padding:0 10px;
+    font-size:13px;
+    line-height:20px;
+    text-align:center;
+    @each $color, $value, $option in $colors {
+        &.flag-#{$color} {
+            background-color:$value;
+            border-color:$value;
+            @if $option == 'dark' {
+                color:#fff;
+            } @else if $option == 'bright' {
+                color:$basic;
+            }
+        }
+        &.flag-border-#{$color} {
+            border-color:$value;
+            @if $color == 'border' {
+                background-color:$border2;
+            }
+            @if $option == 'dark' {
+                color:$value;
+            } @else if $option == 'bright' {
+                color:$cont;
+            }
+        }
+    }
+}

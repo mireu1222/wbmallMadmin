@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+$basic : #333;
+$black : #1c1c1c;
+$cont : #666;
+$gray : #808080;
+$blur : #f5f5f5;
+$border : #ddd;
+$border2 : #eee;
+$border3 : #bbb;
+$bg : #eff1f5;
+$point : #124990;
+$point2 : #082c5c;
+$yellow : #ffa409;
+$red : #cc301a;
+
+$colors : (
+    "basic" $basic "dark",
+    "black" $black "dark",
+    "cont" $cont "dark",
+    "gray" $gray "dark",
+    "blur" $blur "bright",
+    "border" $border "bright",
+    "point" $point "dark",
+    "red" $red "dark",
+) !default;
+
+$btns : (
+    "sm" 36px 34px 12px 400,
+    "lg" 44px 42px 13px 500
+) !default;

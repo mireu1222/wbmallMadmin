@@ -1,0 +1,148 @@
+<div class="consulting-wrap">
+    <h2>상담 진행 내역</h2>
+    <div class="sections">
+        <!-- 기 상담내용 -->
+        <section>
+            <span class="num">1</span>
+            <div class="tbl-wrap">
+                <table class="table row-tbl">
+                    <caption>상담 진행 내역</caption>
+                    <colgroup>
+                        <col style="width:25%;">
+                        <col>
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="row">제목</th>
+                            <td>입력한 제목이 들어감</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">작성자</th>
+                            <td>김상담</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">등록일</th>
+                            <td>2021-05-01</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">관심보험</th>
+                            <td>입력한 관심보험 상품명이 들어감</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">내용</th>
+                            <td>
+                                입력한 내용이 들어감
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">상태</th>
+                            <td>
+                                <span class="flag flag-border-basic">부재</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">첨부파일</th>
+                            <td>
+                                <ul class="upload-file-list">
+                                    <li>
+                                        <a href="#n" class="file-name">기업로드된파일제목.pdf</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-gray mr-auto"><span>수정</span></button>
+                <button type="button" class="btn btn-point"><span>내역추가</span></button>
+            </div>
+        </section>
+        <!-- // 기 상담내용 -->
+        <!-- 기본, 수정입력 시 -->
+        <section>
+            <span class="num">2</span>
+            <div class="tbl-wrap">
+                <table class="table row-tbl">
+                    <caption>상담 진행 내역</caption>
+                    <colgroup>
+                        <col style="width:20%;">
+                        <col>
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="row">제목</th>
+                            <td>
+                                <input type="text" class="form-control" title="제목 입력">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">작성자</th>
+                            <td>김상담</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">등록일</th>
+                            <td>2021-05-01</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">관심보험</th>
+                            <td>
+                                <input type="text" class="form-control" title="관심 보험 입력">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">내용</th>
+                            <td>
+                                <textarea class="form-control" title="상담 내용 입력"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">상태</th>
+                            <td>
+                                @@if(!context.chance){
+                                    @@include('./modules/slt-list.html', {
+                                        size : 'half',
+                                        radio : 'state',
+                                        list : [
+                                            '접수', '부재', '거절', '가망고객', '계약'
+                                        ]
+                                    })
+                                }
+                                @@if(context.chance){
+                                    @@include('./modules/slt-list.html', {
+                                        size : 'auto',
+                                        radio : 'state',
+                                        list : [
+                                            '부재', '거절', '계약'
+                                        ]
+                                    })
+                                }
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">첨부파일</th>
+                            <td>
+                                <div class="fileinput-wrap">
+                                    <input type="text" class="form-control" disabled>
+                                    <label for="file-upload">찾아보기</label>
+                                    <input type="file" id="file-upload">
+                                </div>
+                                <ul class="upload-file-list">
+                                    <li>
+                                        <p class="file-name">기업로드된파일제목.pdf</p>
+                                        <button type="button" class="btn-del"><span class="blind">삭제</span></button>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="btn-group">
+                <input type="reset" class="btn btn-border-border" value="취소">
+                <button type="button" class="btn btn-point"><span>저장</span></button>
+            </div>
+        </section>
+    </div>
+    <!-- // 기본, 수정입력 시 -->
+</div>

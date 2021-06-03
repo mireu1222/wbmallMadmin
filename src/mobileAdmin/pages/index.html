@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./layout/head.html')
+</head>
+<body>
+    <div class="skip-navigation">
+        <a href="#container">메뉴 건너뛰기</a>
+    </div>
+    <!-- login -->
+    <div id="wrap" class="login">
+        <!-- 작업시 onclick evt 삭제 -->
+        <h1 class="logo" onClick="location.href='/mobileAdmin/page/sub_01.html'"><img src="/mobileAdmin/images/logo.png" alt="W-보담 로고"></h1>
+        <!-- // 작업시 onclick evt 삭제 -->
+        <h2 class="title">우리인슈몰 모바일 고객관리</h2>
+        <div class="form-wrap">
+            <div class="row">
+                <input type="text" class="form-control" placeholder="사번을 입력해 주세요." title="사번을 입력해 주세요.">
+            </div>
+            <div class="row">
+                <input type="password" class="form-control" placeholder="비밀번호를 입력해 주세요." title="비밀번호를 입력해 주세요.">
+            </div>
+            <div class="row last">
+                <span class="chk-wrap">
+                    <input type="checkbox" id="id-save">
+                    <label for="id-save">아이디 저장</label>
+                </span>
+            </div>
+            <div class="btn-group">
+                <button type="submit" class="btn btn-point btn-lg no-radius block" data-toggle="modal" data-target="#confirm-alert">로그인</button>
+            </div>
+        </div>
+        <div class="login-bottom">
+            <p>아이디와 비밀번호 분실시 관리자에게 연락주세요!</p>
+            <p class="call"><a href="tel:031-1566-7800">031-1566-7800</a></p>
+        </div>
+    </div>
+    <!-- // login -->
+
+    <!-- alert -->
+    <div id="confirm-alert" class="modal">
+        <div class="modal-wrap">
+            <div class="modal-container alert">
+                <div class="modal-body">
+                    <p>올바른 아이디와<br>패스워드를 입력해 주세요!</p>
+                </div>
+                <div class="modal-foot">
+                    <button type="submit" class="btn btn-point btn-lg no-radius block" data-toggle="modal-close"><span>확인</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- // alert -->
+</body>
+<script>
+    modalToggle();
+    function modalToggle() {
+        var toggle = $('[data-toggle="modal"]');
+
+        toggle.on('click', function(){
+            var target = $(this).data('target') || $(this).attr('href');
+
+            $(target).show();
+            setTimeout(function(){
+                $(target).addClass('show');
+            }, 100);
+        });
+
+        var close = $('[data-toggle="modal-close"]');
+
+        close.on('click', function(){
+            var wrap = $(this).parents('.modal');
+
+            if(wrap.length <= 0) return;
+
+            wrap.removeClass('show');
+            setTimeout(function(){
+                wrap.hide();
+            }, 150);
+        });
+    }
+</script>
+</html>

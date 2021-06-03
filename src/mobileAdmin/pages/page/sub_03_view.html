@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./layout/head.html')
+</head>
+<body>
+    <div class="skip-navigation">
+        <a href="#container">메뉴 건너뛰기</a>
+    </div>
+    <div id="wrap">
+        <!-- header -->
+        @@include('./layout/header.html')
+        <!-- // header -->
+        <!-- content -->
+        <div id="container" class="container">
+            <!-- page tab -->
+            @@include('./layout/depth1-tab.html', {
+                sub03 : true,
+            })
+            <!-- // page tab -->
+
+            <!-- 고객정보 -->
+            @@include('./modules/customer-list.html', {
+                detail : {
+                    from : '무료상담신청',
+                }
+            })
+            <!-- // 고객정보 -->
+
+            <!-- 계약정보(내역) -->
+            <div class="consulting-wrap">
+                <h2>계약 정보</h2>
+                <div class="sections">
+                    <section>
+                        <div class="tbl-wrap">
+                            <table class="table row-tbl">
+                                <caption>계약 정보</caption>
+                                <colgroup>
+                                    <col style="width:25%;">
+                                    <col>
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">계약보험</th>
+                                        <td>계약보험명이 들어감</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">계약내용</th>
+                                        <td>계약내용이 들어감</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">월보험료</th>
+                                        <td>39,000원</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">계약일</th>
+                                        <td>2021-04-12</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">담당설계사</th>
+                                        <td>김설계</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="btn-group">
+                            <a href="/mobileAdmin/ page/sub_03.html" class="btn btn-border-border"><span>취소</span></a>
+                            <button type="button" class="btn btn-point"><span>수정</span></button>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!-- // 계약정보(내역) -->
+
+            <!-- 계약정보(수정/입력) -->
+            <div class="consulting-wrap">
+                <h2>계약 정보</h2>
+                <div class="sections">
+                    <section>
+                        <div class="tbl-wrap">
+                            <table class="table row-tbl">
+                                <caption>계약 정보</caption>
+                                <colgroup>
+                                    <col style="width:25%;">
+                                    <col>
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">계약보험</th>
+                                        <td>
+                                            <input type="text" class="form-control" title="계약보험명 입력">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">계약내용</th>
+                                        <td>
+                                            <textarea class="form-control" title="계약내용 입력"></textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">월보험료</th>
+                                        <td><input type="text" class="form-control" title="월보험료 입력"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">계약일</th>
+                                        <td>
+                                            <div class="datepicker-wrap">
+                                                <input type="text" class="form-control datepicker-here" title="계약일 선택" data-position="top right">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">담당설계사</th>
+                                        <td><input type="text" class="form-control" title="담당설계사 이름 입력"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="btn-group">
+                            <a href="/mobileAdmin/ page/sub_03.html" class="btn btn-border-border"><span>취소</span></a>
+                            <button type="button" class="btn btn-point"><span>저장</span></button>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!-- 계약정보(수정/입력) -->
+        </div>
+        <!-- // content -->
+    </div>
+</body>
+</html>

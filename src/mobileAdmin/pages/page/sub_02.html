@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./layout/head.html')
+</head>
+<body>
+    <div class="skip-navigation">
+        <a href="#container">메뉴 건너뛰기</a>
+    </div>
+    <div id="wrap">
+        <!-- header -->
+        @@include('./layout/header.html')
+        <!-- // header -->
+        <!-- content -->
+        <div id="container" class="container">
+            <!-- page tab -->
+            @@include('./layout/depth1-tab.html', {
+                sub02 : true,
+            })
+            <!-- // page tab -->
+
+            <!-- search -->
+            @@include('./modules/search.html')
+            <!-- // search -->
+
+            <!-- list -->
+            @@include('./modules/customer-list.html', {
+                list : [
+                    {
+                        device : '모바일',
+                        state : '상담'
+                    },
+                    {
+                        device : 'PC',
+                        state : '거절'
+                    }, 
+                    {
+                        device : '모바일',
+                        state : '부상담'
+                    }, 
+                    {
+                        device : 'PC',
+                        state : '계약'
+                    }, 
+                    {
+                        device : 'PC',
+                        state : '상담'
+                    }
+                ],
+                page : '/mobileAdmin/page/sub_02_view.html',
+                more : true
+            })
+            <!-- // list -->
+        </div>
+        <!-- // content -->
+    </div>
+</body>
+</html>
